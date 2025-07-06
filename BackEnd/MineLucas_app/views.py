@@ -3,9 +3,8 @@ from .serializers import UsuarioSerializer, BiomaSerializer, CriaturaSerializer,
 from .permissions import IsAdmin, IsJogador
 from rest_framework import status
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.views import TokenObtainPairView
-import pandas as pd
 
 # Create your views here.
 
