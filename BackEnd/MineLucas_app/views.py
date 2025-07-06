@@ -3,7 +3,7 @@ from .serializers import UsuarioSerializer, BiomaSerializer, CriaturaSerializer,
 from .permissions import IsAdmin, IsJogador
 from rest_framework import status
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 # Create your views here.
@@ -21,14 +21,14 @@ class VerUsuarios(ListAPIView):
 class LCBiomas(ListCreateAPIView):
     queryset = Biomas.objects.all()
 
-    permission_classes = [IsJogador]
+    permission_classes = [IsAuthenticated]
 
     serializer_class = BiomaSerializer
 
 class UDBiomas(RetrieveUpdateDestroyAPIView):
     queryset = Biomas.objects.all()
 
-    permission_classes = [IsJogador]
+    permission_classes = [IsAuthenticated]
 
     serializer_class = BiomaSerializer
 
@@ -37,14 +37,14 @@ class UDBiomas(RetrieveUpdateDestroyAPIView):
 class LCCriaturas(ListCreateAPIView):
     queryset = Criaturas.objects.all()
 
-    permission_classes = [IsJogador]
+    permission_classes = [IsAuthenticated]
 
     serializer_class = CriaturaSerializer
 
 class UDCriaturas(RetrieveUpdateDestroyAPIView):
     queryset = Criaturas.objects.all()
 
-    permission_classes = [IsJogador]
+    permission_classes = [IsAuthenticated]
 
     serializer_class = CriaturaSerializer
 
@@ -53,14 +53,14 @@ class UDCriaturas(RetrieveUpdateDestroyAPIView):
 class LCBlocos(ListCreateAPIView):
     queryset = Blocos.objects.all()
 
-    permission_classes = [IsJogador]
+    permission_classes = [IsAuthenticated]
 
     serializer_class = BlocoSerializer
 
 class UDBlocos(RetrieveUpdateDestroyAPIView):
     queryset = Blocos.objects.all()
 
-    permission_classes = [IsJogador]
+    permission_classes = [IsAuthenticated]
 
     serializer_class = BlocoSerializer
 
@@ -69,14 +69,14 @@ class UDBlocos(RetrieveUpdateDestroyAPIView):
 class LCEstruturas(ListCreateAPIView):
     queryset = Estruturas.objects.all()
 
-    permission_classes = [IsJogador]
+    permission_classes = [IsAuthenticated]
 
     serializer_class = EstruturaSerializer
 
 class UDEstrutras(RetrieveUpdateDestroyAPIView):
     queryset = Estruturas.objects.all()
 
-    permission_classes = [IsJogador]
+    permission_classes = [IsAuthenticated]
 
     serializer_class = EstruturaSerializer
 
