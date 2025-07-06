@@ -32,7 +32,6 @@ class Biomas(models.Model):
      clima = models.CharField(max_length=255, choices=clima_bioma, default="Frio")
      chuva = models.BooleanField()
      dimensao = models.CharField(max_length=255, choices=dimensao, default="Overworld")
-     estruturas = models.TextField()
      foto = models.TextField()
 
      def __str__(self):
@@ -80,7 +79,7 @@ class Estruturas(models.Model):
      dimensao = models.CharField(max_length=255, choices=dimensao, default="Overworld")
      tipo = models.CharField(max_length=255)
      tamanho = models.CharField(max_length=255)
-     bioma_id = models.ForeignKey("Biomas", on_delete=models.CASCADE)
+     bioma = models.ForeignKey("Biomas", on_delete=models.CASCADE)
      foto = models.TextField()
 
      def __str__(self):
