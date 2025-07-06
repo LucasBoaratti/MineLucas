@@ -46,7 +46,6 @@ class Criaturas(models.Model):
      habilidade_especial = models.BooleanField()
      montado = models.BooleanField()
      dimensao_criatura = models.CharField(max_length=255, choices=dimensao, default="Overworld")
-     bioma_spawn = models.ForeignKey("Biomas", on_delete=models.CASCADE)
      foto = models.TextField()
 
      def __str__(self):
@@ -79,7 +78,6 @@ class Estruturas(models.Model):
      dimensao = models.CharField(max_length=255, choices=dimensao, default="Overworld")
      tipo = models.CharField(max_length=255)
      tamanho = models.CharField(max_length=255)
-     bioma = models.ForeignKey("Biomas", on_delete=models.CASCADE)
      foto = models.TextField()
 
      def __str__(self):
