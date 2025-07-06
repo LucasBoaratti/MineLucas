@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
@@ -7,6 +8,17 @@ dimensao = [
      ("Nether", "Nether"),
      ("The End", "The End"),
 ]
+
+class Usuario(AbstractUser):
+     funcoes = [
+          ("Jogador", "Jogador"),
+          ("Admin", "Admin"),
+     ]
+
+     funcao = models.CharField(max_length=255, choices=funcoes, default="Jogador")
+
+     def __str__(self):
+          return self.username
 
 class Biomas(models.Model):
      clima_bioma = [
@@ -23,6 +35,9 @@ class Biomas(models.Model):
      estruturas = models.TextField()
      foto = models.TextField()
 
+     def __str__(self):
+          return self.nome
+
 class Criaturas(models.Model):
      nome = models.CharField(max_length=255)
      tipo = models.CharField(max_length=255)
@@ -34,6 +49,9 @@ class Criaturas(models.Model):
      dimensao_criatura = models.CharField(max_length=255, choices=dimensao, default="Overworld")
      bioma_spawn = models.ForeignKey("Biomas", on_delete=models.CASCADE)
      foto = models.TextField()
+
+     def __str__(self):
+          return self.nome
      
 class Blocos(models.Model):
      ferramentas = [
@@ -53,6 +71,9 @@ class Blocos(models.Model):
      geracao = models.CharField(max_length=255)
      ferramenta_quebra = models.CharField(max_length=255, choices=ferramentas, default="Picareta")
      foto = models.TextField()
+
+     def __str__(self):
+          return self.nome
      
 class Estruturas(models.Model):
      nome = models.CharField(max_length=255)
@@ -61,3 +82,6 @@ class Estruturas(models.Model):
      tamanho = models.CharField(max_length=255)
      bioma_id = models.ForeignKey("Biomas", on_delete=models.CASCADE)
      foto = models.TextField()
+
+     def __str__(self):
+          return self.nome
