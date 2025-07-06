@@ -39,8 +39,8 @@ class UsuarioCadastrado(serializers.ModelSerializer): #Classe que realiza o cada
         ("Admin", "Admin"),
     ]
 
-    username = serializers.CharField(write_only=True)
-    email = serializers.CharField()
+    username = serializers.CharField()
+    email = serializers.CharField(write_only=True)
     password = serializers.CharField(write_only=True)
     confirmarSenha = serializers.CharField(write_only=True)
     funcao = serializers.ChoiceField(choices=funcoes)
@@ -71,18 +71,16 @@ class UsuarioCadastrado(serializers.ModelSerializer): #Classe que realiza o cada
         username = validated_data["username"]
         email = validated_data["email"]
         password = validated_data["password"]
-        confirmarSenha = validated_data["confirmarSenha"]
         funcao = validated_data["funcao"]
 
         usuario = Usuario(
             username=username,
             email=email,
             password=password,
-            confirmarSenha=confirmarSenha,
             funcao=funcao,
         )   
 
-        usuario.set_password(validated_data["password"])
+        usuario.set_password(password)
 
         usuario.save()
 
