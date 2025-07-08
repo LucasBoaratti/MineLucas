@@ -96,7 +96,7 @@ class LoginUsuario(TokenObtainPairSerializer):
     def validate(self, attrs):
         data = super().validate(attrs)
 
-        data["Usuário"] = {
+        data["usuario"] = {
             "Nome": self.user.username,
             "Função": self.user.funcao,
         }
