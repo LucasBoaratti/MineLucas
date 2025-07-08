@@ -56,7 +56,6 @@ export function Login() {
             <section className={css.login}>
                 <h1>Bem vindo(a) à MineLucas!</h1>
                 <p className={css.realizarLogin}>Realize seu login abaixo.</p>
-
                 <form onSubmit={handleSubmit(login)}>
                     <label 
                         htmlFor="name"
