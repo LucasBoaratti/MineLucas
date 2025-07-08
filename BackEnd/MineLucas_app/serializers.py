@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
-from .models import Usuario, Biomas, Criaturas, Blocos, Estruturas
+from .models import Usuario, Biomas, Criaturas, Blocos, Estruturas, Jogadores
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 class UsuarioSerializer(ModelSerializer):
@@ -30,6 +30,12 @@ class BlocoSerializer(ModelSerializer):
 class EstruturaSerializer(ModelSerializer):
     class Meta:
         model = Estruturas
+
+        fields = "__all__"
+
+class JogadorSerializer(ModelSerializer):
+    class Meta:
+        model = Jogadores
 
         fields = "__all__"
 
