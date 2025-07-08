@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { LoginModalSucesso } from "../Components/LoginModalSucesso";
 import { LoginModalFracasso } from "../Components/LoginModalFracasso";
+import { useNavigate } from "react-router-dom";
 
 const validacaoLogin = z.object({
     username: z.string()
@@ -13,11 +14,13 @@ const validacaoLogin = z.object({
         .max(255, "O nome não pode ter mais de 255 caracteres."),
     password: z.string()
         .min(8, "A senha tem que possuir no mínimo 8 caracteres."),
-})
+});
 
 export function Login() {
     const [loginModal, setLoginModal] = useState(false);
     const [erroLoginModal, setErroLoginModal] = useState(false);
+
+    const navigate = useNavigate();
 
     const {
         register,
@@ -85,7 +88,7 @@ export function Login() {
                     <br />
                     {errors.password && <p style={{ marginBottom:"10px", color:"#59331B" }}>{errors.password.message}</p>}
 
-                    <p className={css.cadastro}>Ainda não possui uma conta? Faça seu cadastro <u>aqui</u></p>
+                    <p className={css.cadastro}>Ainda não possui uma conta? Faça seu cadastro <u onClick={() => navigate("/cadastro")}>aqui!</u></p>
 
                     <div className={css.botao}>
                         <button type="submit">Entrar</button>
