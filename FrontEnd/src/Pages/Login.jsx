@@ -94,7 +94,7 @@ export function Login() {
                     <LoginModalSucesso openModal={loginModal}/>
                     <LoginModalFracasso 
                         openModal={erroLoginModal} 
-                        closeModal={() => setErroLoginModal(true)}/>
+                        closeModal={() => setErroLoginModal(false)}/>
                 </form>
             </section>
         </main>
