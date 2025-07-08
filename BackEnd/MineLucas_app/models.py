@@ -82,3 +82,14 @@ class Estruturas(models.Model):
 
      def __str__(self):
           return self.nome
+     
+class Jogadores(models.Model):
+     nome = models.CharField(max_length=255)
+     biografia = models.TextField()
+     criador_conteudo = models.BooleanField()
+     canal = models.TextField()
+     skin = models.TextField()
+     ativo = models.BooleanField()
+
+     def __str__(self):
+          return self.nome
