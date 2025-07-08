@@ -3,9 +3,9 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios"
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { LoginModalSucesso } from "../Components/LoginModalSucesso";
+import { LoginModalFracasso } from "../Components/LoginModalFracasso";
 
 const validacaoLogin = z.object({
     username: z.string()
@@ -18,8 +18,6 @@ const validacaoLogin = z.object({
 export function Login() {
     const [loginModal, setLoginModal] = useState(false);
     const [erroLoginModal, setErroLoginModal] = useState(false);
-
-    const navigate = useNavigate();
 
     const {
         register,
@@ -94,6 +92,9 @@ export function Login() {
                         <button type="submit">Entrar</button>
                     </div>
                     <LoginModalSucesso openModal={loginModal}/>
+                    <LoginModalFracasso 
+                        openModal={erroLoginModal} 
+                        closeModal={() => setErroLoginModal(true)}/>
                 </form>
             </section>
         </main>
