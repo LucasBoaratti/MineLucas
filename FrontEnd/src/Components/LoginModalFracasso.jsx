@@ -11,7 +11,7 @@ export function LoginModalFracasso({ openModal, closeModal }) {
      return (
           <main className={css.modalContainer} style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
                <section className={css.modalLogin}>
-                    <h1>Usuário não cadastrado ou senha incorretos.</h1>
+                    <h1>Usuário, não cadastrado, ou senha incorretos.</h1>
                     <div className={css.botao}>
                          <button 
                               type="button"
