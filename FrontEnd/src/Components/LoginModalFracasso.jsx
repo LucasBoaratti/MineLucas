@@ -9,13 +9,16 @@ export function LoginModalFracasso({ openModal, closeModal }) {
      const navigate = useNavigate();
 
      return (
-          <main className={css.modalContainer}>
+          <main className={css.modalContainer} style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
                <section className={css.modalLogin}>
                     <h1>Usuário não cadastrado ou senha incorretos.</h1>
                     <div className={css.botao}>
                          <button 
                               type="button"
-                              onClick={() => navigate("/")}>
+                              onClick={() => {
+                                   closeModal();
+                                   navigate("/");
+                              }}>
                               Voltar
                          </button>
                     </div>
