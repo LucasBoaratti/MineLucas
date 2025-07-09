@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+main {
+    background-image: url("../assets/Images/BackGround.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 .loginContainer {
     @apply flex flex-col justify-center items-center min-h-screen;
 }

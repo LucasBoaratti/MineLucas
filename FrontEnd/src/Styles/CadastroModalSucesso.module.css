@@ -5,7 +5,7 @@
     background-color: #4ED5E160
 }
 
-.modalLogin {
+.modalCadastro {
     @apply bg-[#8D6243] p-8 rounded-[25px] text-white;
 }
 

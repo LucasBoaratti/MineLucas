@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+footer {
+    @apply relative bottom-0 left-0 bg-[#FED83D];
+}
+
+
+.direitosAutorais {
+    @apply pl-[5px] pb-[5px] text-center;
+}

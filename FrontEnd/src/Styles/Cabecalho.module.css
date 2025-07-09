@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+header {
+    @apply bg-[#FED83D];
+}
+
+.cabecalho {
+    @apply flex justify-between items-center px-[20px] py-[15px];
+}
+
+.links {
+    @apply flex items-center gap-12;
+}
+
+.perfil {
+    @apply flex flex-col items-center;
+}
+
+.perfil h2 {
+    @apply text-[18px]
+}

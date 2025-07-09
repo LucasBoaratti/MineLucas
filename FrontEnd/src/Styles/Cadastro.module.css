@@ -20,6 +20,10 @@
      @apply w-[100%] h-[35px] rounded-[5px] border-2 border-black pl-0.5 my-[5px] text-[18px] bg-white;
 }
 
+.cadastro select {
+     @apply ml-2 bg-white my-[10px];
+}
+
 .login {
      @apply text-[16px] mb-[20px];
 }

@@ -6,7 +6,7 @@
 }
 
 .modalLogin {
-    @apply bg-[#8D6243] p-8 rounded-[25px];
+    @apply bg-[#8D6243] p-8 rounded-[25px] text-white;
 }
 
 .botao {
