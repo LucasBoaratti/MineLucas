@@ -9,7 +9,7 @@ export function LoginModalSucesso({ openModal }) {
     const navigate = useNavigate();
 
     return (
-        <main className={css.modalContainer}>
+        <main className={css.modalContainer} style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
             <section className={css.modalLogin}>
                 <h1>Login realizado com sucesso!</h1>
                 <div className={css.botao}>
