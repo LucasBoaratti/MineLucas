@@ -6,11 +6,15 @@
 }
 
 .modalDeletarBioma {
-    @apply bg-[#8D6243] p-8 rounded-[25px] text-white;
+    @apply bg-[#8D6243] p-7 rounded-[25px] text-white w-[500px] pb-[70px];
+}
+
+.modalDeletarBioma h1 {
+    @apply text-[25px];
 }
 
 .botoes {
-    @apply text-center;
+    @apply flex justify-evenly items-center;
 }
 
 .botoes button {
