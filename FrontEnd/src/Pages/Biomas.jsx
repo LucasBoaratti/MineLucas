@@ -2,6 +2,7 @@ import css from "../Styles/Biomas.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { DeletarBiomaModal } from "../Components/DeletarBiomaModal";
 
 export function Biomas() {
      const [biomas, setBiomas] = useState([]);
@@ -18,10 +19,10 @@ export function Biomas() {
           }
 
           try {
-               const response = await axios.get("http://127.0.0.1:8000/MineLucas/biomas/",{
+               const response = await axios.get("http://127.0.0.1:8000/MineLucas/biomas/", {
                     headers: {
                          "Authorization": `Bearer ${token}`,
-                         "Conteny-Type": "application/json",
+                         "Content-Type": "application/json",
                     },
                });
 
@@ -39,7 +40,14 @@ export function Biomas() {
      return (
           <main className={css.cardsContainer} style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
                <section className={css.cards}>
-                    <h1>Veja todos os biomas cadastrados no site.</h1>
+                    <h1>Veja todos os biomas cadastrados no site</h1>
+                    <div className={css.criarBioma}>
+                         <button 
+                              type="button" 
+                              onClick={() => navigate("/criarBioma")}>
+                              Criar bioma
+                         </button>
+                    </div>
                     <section className={css.biomas}>
                          <section className={css.fileiraCards}>
                               {biomas.map((bioma, id) => (
@@ -68,14 +76,19 @@ export function Biomas() {
                                              <button 
                                                   type="button"
                                                   onClick={() => {
-                                                       setIdBioma(bioma.id);
+                                                       localStorage.setItem("idBioma" ,bioma.id);
                                                        setDeletarBioma(true);
                                                   }}>
                                                   Excluir
                                              </button>
+                                             <DeletarBiomaModal 
+                                                  openModal={deletarBioma}
+                                                  closeModal={() => setDeletarBioma(false)}
+                                                  atualizarCard={get_biomas}
+                                                  idBioma={idBioma}/>
                                         </div>
                                    </section>
-                              ))};
+                              ))}
                          </section>
                     </section>
                </section>

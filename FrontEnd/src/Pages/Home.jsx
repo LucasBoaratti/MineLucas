@@ -1,7 +1,10 @@
 import css from "../Styles/Home.module.css";
 import Titulo from "../assets/Images/Titulo_Home.png";
+import { useNavigate } from "react-router-dom";
 
 export function Home() {
+    const navigate = useNavigate();
+
     return (
         <main style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }} className={css.homeContainer}>
             <section>
@@ -10,7 +13,11 @@ export function Home() {
                 </div>
                 <section className={css.cruds}>
                     <div className={css.botao}>
-                        <button type="button">Biomas</button>
+                        <button 
+                            type="button" 
+                            onClick={() => navigate("/biomas")}>
+                            Biomas
+                        </button>
                     </div>
                     <div className={css.botao}>
                         <button type="button">Criaturas</button>
