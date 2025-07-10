@@ -1,4 +1,4 @@
-import css from "../Styles/Home.module.css";
+import css from "./Home.module.css";
 import Titulo from "../assets/Images/Titulo_Home.png";
 import { useNavigate } from "react-router-dom";
 

@@ -1,8 +1,8 @@
-import css from "../Styles/Biomas.module.css";
+import css from "./Biomas.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { DeletarBiomaModal } from "../Components/DeletarBiomaModal";
+import { DeletarBiomaModal } from "../../Components/Modais/Biomas/DeletarBiomaModal";
 
 export function Biomas() {
      const [biomas, setBiomas] = useState([]);
@@ -52,7 +52,9 @@ export function Biomas() {
                          <section className={css.fileiraCards}>
                               {biomas.map((bioma, id) => (
                                    <section key={id} className={css.cardBioma}>
-                                        <img src={bioma.foto} alt="Imagem do bioma." />
+                                        <img 
+                                             src={bioma.foto} 
+                                             alt="Imagem do bioma." />
                                         <h2>Nome: {bioma.nome}</h2>
                                         <p>Vegetação: {bioma.vegetacao}</p>
                                         <p>Clima: {bioma.clima}</p>

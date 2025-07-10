@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { CriarBiomasModal } from "../Components/CriarBiomasModal";
+import { CriarBiomasModal } from "../../Components/Modais/Biomas/CriarBiomasModal";
 
 const validacaoCriarBioma = z.object({
      nome: z.string()

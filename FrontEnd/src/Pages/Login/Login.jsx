@@ -1,11 +1,11 @@
-import css from "../Styles/Login.module.css";
+import css from "./Login.module.css";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios"
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { LoginModalSucesso } from "../Components/LoginModalSucesso";
-import { LoginModalFracasso } from "../Components/LoginModalFracasso";
+import { LoginModalSucesso } from "../../Components/Modais/Login/LoginModalSucesso";
+import { LoginModalFracasso } from "../../Components/Modais/Login/LoginModalFracasso";
 import { useNavigate } from "react-router-dom";
 
 const validacaoLogin = z.object({

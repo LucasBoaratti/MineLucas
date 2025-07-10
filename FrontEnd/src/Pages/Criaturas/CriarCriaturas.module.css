@@ -1,0 +1,42 @@
+@import "tailwinscss";
+
+.criaturaContainer {
+     background-image: url("../assets/Images/BackGround.jpg");
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-attachment: fixed;
+     min-height: 100vh;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+
+.formularioCriaturas {
+     @apply bg-[#79C05A] p-6 rounded-[25px] w-[600px];
+}
+
+.formularioCriaturas h1 {
+     @apply text-[25px] text-center mb-[15px];
+}
+
+.formularioCriaturas p {
+     @apply mb-[15px];
+}
+
+.formularioCriaturas input {
+     @apply w-[100%] h-[35px] border-2 border-black rounded-[5px] pl-0.5 my-[5px] text-[18px] bg-white;
+}
+
+.formularioCriaturas select {
+     @apply my-[5px] bg-white;
+}
+
+.botao {
+     @apply text-center mt-[20px];
+}
+
+.botao button {
+     @apply rounded-[15px] bg-[#8D6243] w-[150px] h-[35px] pb-[3px] pl-[3px] text-center text-white cursor-pointer hover:bg-[#3C3C3C] hover:text-white;
+}

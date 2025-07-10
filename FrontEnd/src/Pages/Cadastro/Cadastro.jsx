@@ -1,11 +1,11 @@
-import css from "../Styles/Cadastro.module.css";
+import css from "./Cadastro.module.css";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CadastroModalSucesso } from "../Components/CadastroModalSucesso";
+import { CadastroModalSucesso } from "../../Components/Modais/Cadastro/CadastroModalSucesso";
 
 const validacaoCadastro = z.object({
      username: z.string()

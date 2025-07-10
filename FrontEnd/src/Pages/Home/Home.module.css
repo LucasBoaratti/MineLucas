@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+.homeContainer {
+    background-image: url("../assets/Images/BackGround.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.imagem {
+    @apply flex justify-center items-center py-[70px];
+}
+
+.cruds {
+    @apply flex flex-col justify-center items-center;
+}
+
+.botao {
+    @apply mb-[10px];
+}
+
+.botao button {
+    @apply bg-[#6B7280] border-2 w-[700px] h-[45px] border-black hover:border-2 hover:border-white text-white text-[18px] cursor-pointer;
+    box-shadow: inset -3px -3px 6px rgba(0,0,0,0.7);
+}
