@@ -5,6 +5,7 @@ import { Cadastro } from "../Pages/Cadastro";
 import { Home } from "../Pages/Home";
 import { Biomas } from "../Pages/Biomas";
 import { CriarBiomas } from "../Pages/CriarBiomas";
+import { EditarBiomas } from "../Pages/EditarBiomas";
 
 export function Rotas() {
     return (
@@ -21,12 +22,16 @@ export function Rotas() {
                 <Route index element={<Home/>}/>
             </Route>
 
-            <Route path="/bioma" element={<Index/>}>
+            <Route path="/biomas" element={<Index/>}>
                 <Route index element={<Biomas/>}/>
             </Route>
 
             <Route path="/criarBioma" element={<Index/>}>
                 <Route index element={<CriarBiomas/>}/>
+            </Route>
+
+            <Route path="/editarBioma" element={<Index/>}>
+                <Route index element={<EditarBiomas/>}/>
             </Route>
         </Routes>
     );
