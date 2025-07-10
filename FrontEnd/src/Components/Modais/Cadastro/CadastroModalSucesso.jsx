@@ -1,4 +1,4 @@
-import css from "../Styles/CadastroModalSucesso.module.css";
+import css from "./CadastroModalSucesso.module.css";
 import { useNavigate } from "react-router-dom";
 
 export function CadastroModalSucesso({ openModal }) {

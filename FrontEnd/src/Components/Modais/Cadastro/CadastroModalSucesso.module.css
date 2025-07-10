@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+.modalContainer {
+    @apply flex flex-col justify-center items-center min-h-screen z-[1000] fixed top-0 left-0 w-full;
+    background-color: #4ED5E160
+}
+
+.modalCadastro {
+    @apply bg-[#8D6243] p-8 rounded-[25px] text-white;
+}
+
+.botao {
+    @apply text-center;
+}
+
+.botao button {
+    @apply bg-[#3C3C3C] text-white hover:bg-[#2E0F3A] hover:text-[white] w-[100px] h-[30px] mt-[20px] rounded-[15px] pl-[5px] pb-[2px] cursor-pointer;
+}

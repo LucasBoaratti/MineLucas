@@ -1,4 +1,4 @@
-import css from "../Styles/EditarBiomasModal.module.css";
+import css from "./EditarBiomasModal.module.css";
 import { useNavigate } from "react-router-dom";
 
 export function EditarBiomasModal({ openModal, closeModal }) {
@@ -10,7 +10,7 @@ export function EditarBiomasModal({ openModal, closeModal }) {
 
     return (
         <main className={css.modalContainer} style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
-            <section className={css.modalCriarBioma}>
+            <section className={css.modalEditarBioma}>
                 <h1>Bioma editado com sucesso!</h1>
                 <div className={css.botao}>
                     <button 

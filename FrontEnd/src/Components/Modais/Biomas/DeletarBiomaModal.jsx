@@ -1,4 +1,4 @@
-import css from "../Styles/DeletarBiomaModal.module.css";
+import css from "./DeletarBiomaModal.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 

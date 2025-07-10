@@ -1,5 +1,5 @@
 import Logo from "../assets/Images/Logo_MineLucas.png";
-import css from "../Styles/Cabecalho.module.css";
+import css from "./Cabecalho.module.css";
 
 export function Cabecalho() {
     const nomeUsuario = localStorage.getItem("nomeUsuario");

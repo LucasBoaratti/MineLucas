@@ -1,4 +1,4 @@
-import css from "../Styles/Rodape.module.css";
+import css from "./Rodape.module.css";
 
 export function Rodape() {
     return (

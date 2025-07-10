@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import css from "../Styles/LoginModalFracasso.module.css";
+import css from "./LoginModalFracasso.module.css";
 
 export function LoginModalFracasso({ openModal, closeModal }) {
      if (!openModal) {

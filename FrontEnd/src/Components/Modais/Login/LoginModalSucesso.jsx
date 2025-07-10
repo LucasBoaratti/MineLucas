@@ -1,8 +1,8 @@
-import css from "../Styles/CriarBiomasModal.module.css";
 import { useNavigate } from "react-router-dom";
+import css from "./LoginModalSucesso.module.css";
 
-export function CriarBiomasModal({ openModal, closeModal }) {
-    if(!openModal) {
+export function LoginModalSucesso({ openModal }) {
+    if (!openModal) {
         return null;
     }
 
@@ -10,12 +10,12 @@ export function CriarBiomasModal({ openModal, closeModal }) {
 
     return (
         <main className={css.modalContainer} style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
-            <section className={css.modalCriarBioma}>
-                <h1>Bioma criado com sucesso!</h1>
+            <section className={css.modalLogin}>
+                <h1>Login realizado com sucesso!</h1>
                 <div className={css.botao}>
                     <button 
                         type="button"
-                        onClick={() => navigate("/biomas")}>
+                        onClick={() => navigate("/home")}>
                         Avançar
                     </button>
                 </div>
