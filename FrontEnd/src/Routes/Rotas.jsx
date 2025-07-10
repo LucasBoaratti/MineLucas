@@ -1,11 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import { Index } from "../Pages/Index";
-import { Login } from "../Pages/Login";
-import { Cadastro } from "../Pages/Cadastro";
-import { Home } from "../Pages/Home";
-import { Biomas } from "../Pages/Biomas";
+import { Login } from "../Pages/Login/Login";
+import { Cadastro } from "../Pages/Cadastro/Cadastro";
+import { Home } from "../Pages/Home/Home";
+import { Biomas } from "../Pages/Biomas/Biomas";
 import { CriarBiomas } from "../Pages/CriarBiomas";
 import { EditarBiomas } from "../Pages/EditarBiomas";
+import { Criaturas } from "../Pages/Criaturas/Criaturas";
 
 export function Rotas() {
     return (
@@ -32,6 +33,18 @@ export function Rotas() {
 
             <Route path="/editarBioma" element={<Index/>}>
                 <Route index element={<EditarBiomas/>}/>
+            </Route>
+
+            <Route path="/criaturas" element={<Index/>}>
+                <Route index element={<Criaturas/>}/>
+            </Route>
+
+            <Route path="/criarCriatura" element={<Index/>}>
+                <Route index element={<CriarCriaturas/>}/>
+            </Route>
+
+            <Route path="/editarCriatura" element={<Index/>}>
+                <Route index element={<EditarCriaturas/>}/>
             </Route>
         </Routes>
     );
