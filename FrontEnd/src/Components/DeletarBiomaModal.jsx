@@ -1,3 +1,4 @@
+import css from "../Styles/DeletarBiomaModal.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -9,7 +10,7 @@ export function DeletarBiomaModal({ openModal, closeModal, atualizarCard, idBiom
      const navigate = useNavigate();
 
      async function delete_bioma() {
-          const id_bioma = localStorage.getItem("idBioma");
+          const id_bioma = idBioma;
 
           const token = localStorage.getItem("access_token");
 
@@ -18,7 +19,7 @@ export function DeletarBiomaModal({ openModal, closeModal, atualizarCard, idBiom
           }
 
           try {
-               await axios.delete(`http://127.0.0.1:8000/MineLucas/biomas/${id_bioma}`, {
+               await axios.delete(`http://127.0.0.1:8000/MineLucas/biomas/${id_bioma}/`, {
                     headers: {
                          "Authorization": `Bearer ${token}`,
                          "Content-Type": "application/json",
@@ -39,7 +40,7 @@ export function DeletarBiomaModal({ openModal, closeModal, atualizarCard, idBiom
      }
 
      return (
-          <main className={css.modalContainer}>
+          <main className={css.modalContainer} style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
                <section className={css.modalDeletarBioma}>
                     <h1>Tem certeza que deseja deletar esse bioma?</h1>
                     <div className={css.botoes}>
