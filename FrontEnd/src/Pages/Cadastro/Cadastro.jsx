@@ -53,7 +53,7 @@ export function Cadastro() {
      }
 
      return (
-          <main className={css.cadastroContainer}>
+          <main className={css.cadastroContainer} style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
                <section className={css.cadastro}>
                     <h1>Realize seu cadastro!</h1>
                     <p className={css.realizarCadastro}>Crie sua conta para usar no site.</p>
