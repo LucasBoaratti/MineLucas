@@ -2,7 +2,7 @@ import css from "./DeletarBiomaModal.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export function DeletarBiomaModal({ openModal, closeModal, atualizarCard, idBioma }) {
+export function DeletarBiomaModal({ openModal, closeModal, atualizarCard }) {
      if(!openModal) {
           return null;
      }
@@ -10,7 +10,7 @@ export function DeletarBiomaModal({ openModal, closeModal, atualizarCard, idBiom
      const navigate = useNavigate();
 
      async function delete_bioma() {
-          const id_bioma = idBioma;
+          const id_bioma = localStorage.getItem("idBioma");
 
           const token = localStorage.getItem("access_token");
 

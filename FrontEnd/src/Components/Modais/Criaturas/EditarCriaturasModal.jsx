@@ -9,13 +9,13 @@ export function EditarCriaturasModal({ openModal, closeModal }) {
      const navigate = useNavigate();
 
      return (
-          <main className={css.modalContainer}>
+          <main className={css.modalContainer} style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
                <section className={css.modalEditarCriaturas}>
                     <h1>Criatura editada com sucesso!</h1>
                     <div className={css.botao}>
                          <button 
                               type="button"
-                              onClick={() => navigate("/biomas")}>
+                              onClick={() => navigate("/criaturas")}>
                               Avançar
                          </button>
                     </div>
