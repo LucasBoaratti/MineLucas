@@ -1,5 +1,5 @@
 import css from "./Home.module.css";
-import Titulo from "../assets/Images/Titulo_Home.png";
+import Titulo from "../../assets/Images/Titulo_Home.png";
 import { useNavigate } from "react-router-dom";
 
 export function Home() {
@@ -20,10 +20,18 @@ export function Home() {
                         </button>
                     </div>
                     <div className={css.botao}>
-                        <button type="button">Criaturas</button>
+                        <button 
+                            type="button"
+                            onClick={() => navigate("/criaturas")}>
+                            Criaturas
+                        </button>
                     </div>
                     <div className={css.botao}>
-                        <button type="button">Blocos</button>
+                        <button 
+                            type="button"
+                            onClick={() => navigate("/blocos")}>
+                            Blocos
+                        </button>
                     </div>
                     <div className={css.botao}>
                         <button type="button">Estruturas</button>

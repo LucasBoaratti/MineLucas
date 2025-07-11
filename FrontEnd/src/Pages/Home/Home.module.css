@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
-.homeContainer {
-    background-image: url("../assets/Images/BackGround.jpg");
+main {
+    background-image: url("../../assets/Images/BackGround.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
