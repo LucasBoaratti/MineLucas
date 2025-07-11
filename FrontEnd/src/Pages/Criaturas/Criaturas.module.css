@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .cardsContainer {
-     background-image: url("../assets/Images/BackGround.jpg");
+     background-image: url("../../assets/Images/BackGround.jpg");
      background-position: center;
      background-repeat: no-repeat;
      background-size: cover;
@@ -10,7 +10,7 @@
 }
 
 .cards h1 {
-     @apply text-[25px] text-white py-[50px];
+     @apply text-[25px] text-white text-center py-[50px];
 }
 
 .criarCriatura {
@@ -18,19 +18,23 @@
 }
 
 .criarCriatura button {
-     @apply rounded-[15px] bg-[#FF0000] w-[150px] h-[35px] pb-[3px] pl-[5px] text-center text-[18px] text-black border-2 border-[#000200] cursor-pointer hover:bg-[#5B832C] hover:text-white;
+     @apply rounded-[15px] bg-[#FF0000] w-[190px] h-[35px] pl-[5px] text-center text-[18px] text-black border-2 border-[#000200] cursor-pointer hover:bg-[#5B832C] hover:text-white;
 }
 
 .fileiraCards {
-     @apply flex flex-wrap justify-evenly items-center gap-8;
+     @apply flex flex-wrap justify-evenly gap-8;
 }
 
 .cardCriatura {
      @apply flex flex-col justify-center p-6 rounded-[25px] bg-[#79C05A] w-[450px] mb-[35px];
 }
 
+.imagem {
+     @apply flex justify-center items-center;
+}
+
 .cardCriatura img {
-     @apply w-full mb-[15px] rounded-[10px];
+     @apply w-[200px] h-[200px] mb-[15px] rounded-[10px];
 }
 
 .cardCriatura h2 {

@@ -2,10 +2,10 @@ import css from "./Criaturas.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { DeletarCriaturaModal } from "../../Components/Modais/Criaturas/DeletarCriaturaModal";
 
 export function Criaturas() {
      const [criaturas, setCriaturas] = useState([]);
-     const [idCriatura, setIdCriatura] = useState(null);
      const [deletarCriaturaModal, setDeletarCriaturaModal] = useState(false);
 
      const navigate = useNavigate();
@@ -51,9 +51,11 @@ export function Criaturas() {
                          <section className={css.fileiraCards}>
                               {criaturas.map((criatura, id) => (
                                    <section key={id} className={css.cardCriatura}>
-                                        <img 
-                                             src={criatura.foto} 
-                                             alt="Imagem da criatura/entidade." />
+                                        <div className={css.imagem}>
+                                             <img 
+                                                  src={criatura.foto} 
+                                                  alt="Imagem da criatura/entidade." />
+                                        </div>
                                         <h2>Nome: {criatura.nome}</h2>
                                         <p>Tipo: {criatura.tipo}</p>
                                         <p>Tamanho: {criatura.tamanho}</p>
@@ -71,7 +73,7 @@ export function Criaturas() {
                                                        localStorage.setItem("tipo", criatura.tipo);
                                                        localStorage.setItem("tamanho", criatura.tamanho);
                                                        localStorage.setItem("vida", criatura.vida);
-                                                       localStorage.setItem("drops", criatura.drop_itens);
+                                                       localStorage.setItem("drop_itens", criatura.drop_itens);
                                                        localStorage.setItem("habilidadeEspecial", criatura.habilidade_especial.toString());
                                                        localStorage.setItem("montavel", criatura.montado.toString());
                                                        localStorage.setItem("dimensao", criatura.dimensao_criatura);
@@ -88,6 +90,10 @@ export function Criaturas() {
                                                   }}>
                                                   Excluir
                                              </button>
+                                             <DeletarCriaturaModal 
+                                                  openModal={deletarCriaturaModal}
+                                                  closeModal={() => setDeletarCriaturaModal(false)}
+                                                  atualizarCard={get_criaturas}/>
                                         </div>
                                    </section>
                               ))}

@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import css from "./EditarCriaturas.module.css";
 import axios from "axios";
 import { EditarCriaturasModal } from "../../Components/Modais/Criaturas/EditarCriaturasModal";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 const validacaoEditarCriatura = z.object({
      nome: z.string()
@@ -23,10 +27,13 @@ const validacaoEditarCriatura = z.object({
 
 export function EditarCriaturas() {
      const [editarCriaturaModal, setEditarCriaturaModal] = useState(false);
+     
+     const navigate = useNavigate();
 
      const {
           register,
           handleSubmit,
+          setValue,
           formState: { errors },
      } = useForm({
           resolver: zodResolver(validacaoEditarCriatura)
@@ -42,7 +49,7 @@ export function EditarCriaturas() {
           const id_criatura = localStorage.getItem("idCriatura");
 
           try {
-               await axios.put(`http://127.0.0.1:8000/MineLucas/criaturas/${id_criatura}`, dadosCriaturas, {
+               await axios.put(`http://127.0.0.1:8000/MineLucas/criaturas/${id_criatura}/`, dadosCriaturas, {
                     headers: {
                          "Authorization": `Bearer ${token}`,
                          "Content-type": "application/json",
@@ -55,6 +62,18 @@ export function EditarCriaturas() {
                console.error("Erro ao atualizar a criatura: ", error.response?.data || error.message);
           }
      }
+
+     useEffect(() => {
+          setValue("nome", localStorage.getItem("nome") || "");
+          setValue("tipo", localStorage.getItem("tipo") || "");
+          setValue("tamanho", localStorage.getItem("tamanho") || "");
+          setValue("vida", localStorage.getItem("vida") || "");
+          setValue("drop_itens", localStorage.getItem("drops") || "");
+          setValue("habilidade_especial", localStorage.getItem("habilidadeEspecial") || "false");
+          setValue("montavel", localStorage.getItem("montavel") || "false");
+          setValue("dimensao", localStorage.getItem("dimensao") || "overworld");
+          setValue("foto", localStorage.getItem("foto") || "");
+     }, []);
 
      return (
           <main className={css.criaturaContainer} style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
@@ -100,7 +119,7 @@ export function EditarCriaturas() {
                               name="tamanho" 
                               id="tamanho"
                               placeholder="Digite o tamanho do mob"
-                              {...register("tamanho")} />
+                              {...register("tamanho", {valueAsNumber:true})} />
                          <br />
                          {errors.tamanho && <p style={{ marginBottom:"5px", color:"#59331B" }}>{errors.tamanho.message}</p>}
 
@@ -114,7 +133,7 @@ export function EditarCriaturas() {
                               name="vida" 
                               id="vida"
                               placeholder="Digite a vida do mob"
-                              {...register("vida")} />
+                              {...register("vida", {valueAsNumber:true})} />
                          <br />
                          {errors.vida && <p style={{ marginBottom:"5px", color:"#59331B" }}>{errors.vida.message}</p>}
 
@@ -175,7 +194,7 @@ export function EditarCriaturas() {
                               <option value="Overworld">Overworld</option>
                               <option value="Nether">Nether</option>
                               <option value="The End">The End</option>          
-                         </select>
+                         </select> <br />
                          {errors.dimensao_criatura && <p style={{ marginBottom:"5px", color:"#59331B" }}>{errors.dimensao_criatura.message}</p>}
 
                          <label 
@@ -192,8 +211,13 @@ export function EditarCriaturas() {
                          <br />
                          {errors.foto && <p style={{ marginBottom:"5px", color:"#59331B" }}>{errors.foto.message}</p>}
 
-                         <div className={css.botao}>
-                              <button type="submit">Criar</button>
+                         <div className={css.botoes}>
+                              <button type="submit">Editar</button>
+                              <button 
+                                   type="button"
+                                   onClick={() => navigate("/criaturas")}>
+                                   Voltar
+                              </button>
                          </div>
                          <EditarCriaturasModal openModal={editarCriaturaModal}/>
                     </form>

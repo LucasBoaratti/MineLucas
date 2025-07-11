@@ -46,7 +46,7 @@ export function CriarCriaturas() {
           const token = localStorage.getItem("access_token");
 
           try {
-               await axios.post("http://127.0.0.1:8000/MineLucas/cadastro/", dadosCriatura, {
+               await axios.post("http://127.0.0.1:8000/MineLucas/criaturas/", dadosCriatura, {
                     headers: {
                          "Authorization": `Bearer ${token}`,
                          "Content-Type": "application/json",
@@ -64,7 +64,7 @@ export function CriarCriaturas() {
           <main className={css.criaturaContainer} style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
                <section className={css.formularioCriaturas}>
                     <h1>Crie sua criatura aqui!</h1>
-                    <p>Pode ser uma criatura fictícia ou existente.</p>
+                    <p className={css.aviso}>Pode ser uma criatura fictícia ou existente.</p>
                     <form onSubmit={handleSubmit(post_criaturas)}>
                          <label 
                               htmlFor="nome"
@@ -103,8 +103,8 @@ export function CriarCriaturas() {
                               type="number" 
                               name="tamanho" 
                               id="tamanho"
-                              placeholder="Digite o tamanho do mob"
-                              {...register("tamanho")} />
+                              placeholder="Digite o tamanho do mob em blocos"
+                              {...register("tamanho", {valueAsNumber:true})} />
                          <br />
                          {errors.tamanho && <p style={{ marginBottom:"5px", color:"#59331B" }}>{errors.tamanho.message}</p>}
 
@@ -118,7 +118,7 @@ export function CriarCriaturas() {
                               name="vida" 
                               id="vida"
                               placeholder="Digite a vida do mob"
-                              {...register("vida")} />
+                              {...register("vida", {valueAsNumber:true})} />
                          <br />
                          {errors.vida && <p style={{ marginBottom:"5px", color:"#59331B" }}>{errors.vida.message}</p>}
 
@@ -179,7 +179,7 @@ export function CriarCriaturas() {
                               <option value="Overworld">Overworld</option>
                               <option value="Nether">Nether</option>
                               <option value="The End">The End</option>          
-                         </select>
+                         </select> <br />
                          {errors.dimensao_criatura && <p style={{ marginBottom:"5px", color:"#59331B" }}>{errors.dimensao_criatura.message}</p>}
 
                          <label 
@@ -196,8 +196,13 @@ export function CriarCriaturas() {
                          <br />
                          {errors.foto && <p style={{ marginBottom:"5px", color:"#59331B" }}>{errors.foto.message}</p>}
 
-                         <div className={css.botao}>
+                         <div className={css.botoes}>
                               <button type="submit">Criar</button>
+                              <button 
+                                   type="button"
+                                   onClick={() => navigate("/criaturas")}>
+                                   Voltar
+                              </button>
                          </div>
                          <CriarCriaturasModal openModal={criarCriaturaModal}/>
                     </form>
