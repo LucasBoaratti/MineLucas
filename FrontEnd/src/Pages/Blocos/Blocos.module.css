@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+main {
+    background-image: url("../../assets/Images/BackGround.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.cards h1 {
+    @apply text-[25px] text-white text-center py-[50px];
+}
+
+.criarBloco {
+    @apply text-center pb-[50px];
+}
+
+.criarBloco button {
+    @apply rounded-[15px] bg-[#FF0000] w-[190px] h-[35px] pl-[5px] text-center text-[18px] text-black border-2 border-[#000200] cursor-pointer hover:bg-[#5B832C] hover:text-white;
+}
+
+.fileiraCards {
+     @apply flex flex-wrap justify-evenly gap-8;
+}
+
+.cardBloco {
+    @apply flex flex-col justify-center p-6 rounded-[25px] bg-[#79C05A] w-[450px] mb-[35px];
+}
+
+.imagem {
+    @apply flex justify-center items-center;
+}
+
+.cardBloco img {
+    @apply w-[200px] h-[200px] mb-[15px] rounded-[10px];
+}
+
+.cardBloco h2 {
+    @apply text-[20px] text-center mb-[10px];
+}
+
+.cardBloco p {
+    @apply mb-[15px];
+}
+
+.botoes {
+    @apply flex justify-around items-center;
+}
+
+.botoes button {
+    @apply rounded-[15px] bg-[#8D6243] w-[90px] h-[35px] pb-[3px] pl-[5px] text-center text-white cursor-pointer hover:bg-[#3C3C3C] hover:text-white;
+}
