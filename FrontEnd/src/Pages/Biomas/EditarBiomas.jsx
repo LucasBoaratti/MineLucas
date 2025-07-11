@@ -1,10 +1,11 @@
-import css from "../Styles/EditarBiomas.module.css";
+import css from "./EditarBiomas.module.css";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { EditarBiomasModal } from "../../Components/Modais/Biomas/EditarBiomasModal";
+import { useNavigate } from "react-router-dom";
 
 const validacaoEditarBioma = z.object({
     nome: z.string()
@@ -33,6 +34,8 @@ const validacaoEditarBioma = z.object({
 
 export function EditarBiomas() {
     const [modalEditarBioma, setModalEditarBioma] = useState(false);
+
+    const navigate = useNavigate();
 
     const {
         register,
@@ -174,8 +177,13 @@ export function EditarBiomas() {
                     <br />
                     {errors.foto && <p style={{ marginBottom:"5px", color:"#59331B" }}>{errors.foto.message}</p>}  
     
-                    <div className={css.botao}>
+                    <div className={css.botoes}>
                         <button type="submit">Editar bioma</button>
+                        <button 
+                            type="button"
+                            onClick={() => navigate("/biomas")}>
+                            Voltar
+                        </button>
                     </div>
                     <EditarBiomasModal openModal={modalEditarBioma}/>
                 </form>

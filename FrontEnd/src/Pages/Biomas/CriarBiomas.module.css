@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
-.biomaContainer {
-    background-image: url("../assets/Images/BackGround.jpg");
+main {
+    background-image: url("../../assets/Images/BackGround.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -33,10 +33,10 @@
     @apply my-[5px] bg-white;
 }
 
-.botao {
-    @apply text-center mt-[20px];
+.botoes {
+    @apply flex justify-around items-center mt-[20px];
 }
 
-.botao button {
+.botoes button {
     @apply rounded-[15px] bg-[#8D6243] w-[150px] h-[35px] pb-[3px] pl-[3px] text-center text-white cursor-pointer hover:bg-[#3C3C3C] hover:text-white;
 }

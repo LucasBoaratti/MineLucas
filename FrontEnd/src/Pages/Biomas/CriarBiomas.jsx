@@ -1,9 +1,10 @@
-import css from "../Styles/CriarBiomas.module.css";
+import css from "./CriarBiomas.module.css";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { CriarBiomasModal } from "../../Components/Modais/Biomas/CriarBiomasModal";
 
 const validacaoCriarBioma = z.object({
@@ -33,6 +34,8 @@ const validacaoCriarBioma = z.object({
 
 export function CriarBiomas() {
      const [modalCriarBioma, setModalCriarBioma] = useState(false);
+
+     const navigate = useNavigate();
 
      const {
           register,
@@ -162,8 +165,13 @@ export function CriarBiomas() {
                          <br />
                          {errors.foto && <p style={{ marginBottom:"5px", color:"#59331B" }}>{errors.foto.message}</p>}  
 
-                         <div className={css.botao}>
+                         <div className={css.botoes}>
                               <button type="submit">Criar bioma</button>
+                              <button
+                                   type="button"
+                                   onClick={() => navigate("/biomas")}>
+                                   Voltar
+                              </button>
                          </div>
                          <CriarBiomasModal openModal={modalCriarBioma}/>
                     </form>

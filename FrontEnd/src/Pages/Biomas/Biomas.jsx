@@ -6,7 +6,6 @@ import { DeletarBiomaModal } from "../../Components/Modais/Biomas/DeletarBiomaMo
 
 export function Biomas() {
      const [biomas, setBiomas] = useState([]);
-     const [idBioma, setIdBioma] = useState(null);
      const [deletarBioma, setDeletarBioma] = useState(false);
 
      const navigate = useNavigate();
@@ -52,9 +51,11 @@ export function Biomas() {
                          <section className={css.fileiraCards}>
                               {biomas.map((bioma, id) => (
                                    <section key={id} className={css.cardBioma}>
-                                        <img 
-                                             src={bioma.foto} 
-                                             alt="Imagem do bioma." />
+                                        <div className={css.imagem}>
+                                             <img 
+                                                  src={bioma.foto} 
+                                                  alt="Imagem do bioma." />
+                                        </div>
                                         <h2>Nome: {bioma.nome}</h2>
                                         <p>Vegetação: {bioma.vegetacao}</p>
                                         <p>Clima: {bioma.clima}</p>
@@ -78,7 +79,7 @@ export function Biomas() {
                                              <button 
                                                   type="button"
                                                   onClick={() => {
-                                                       localStorage.setItem("idBioma" ,bioma.id);
+                                                       localStorage.setItem("idBioma", bioma.id);
                                                        setDeletarBioma(true);
                                                   }}>
                                                   Excluir
@@ -86,8 +87,7 @@ export function Biomas() {
                                              <DeletarBiomaModal 
                                                   openModal={deletarBioma}
                                                   closeModal={() => setDeletarBioma(false)}
-                                                  atualizarCard={get_biomas}
-                                                  idBioma={idBioma}/>
+                                                  atualizarCard={get_biomas}/>
                                         </div>
                                    </section>
                               ))}
