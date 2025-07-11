@@ -4,9 +4,13 @@ import { Login } from "../Pages/Login/Login";
 import { Cadastro } from "../Pages/Cadastro/Cadastro";
 import { Home } from "../Pages/Home/Home";
 import { Biomas } from "../Pages/Biomas/Biomas";
-import { CriarBiomas } from "../Pages/CriarBiomas";
-import { EditarBiomas } from "../Pages/EditarBiomas";
+import { CriarBiomas } from "../Pages/Biomas/CriarBiomas";
+import { EditarBiomas } from "../Pages/Biomas/EditarBiomas";
 import { Criaturas } from "../Pages/Criaturas/Criaturas";
+import { CriarCriaturas } from "../Pages/Criaturas/CriarCriaturas";
+import { EditarCriaturas } from "../Pages/Criaturas/EditarCriaturas";
+import { Blocos } from "../Pages/Blocos/Blocos";
+import { CriarBlocos } from "../Pages/Blocos/CriarBlocos";
 
 export function Rotas() {
     return (
@@ -45,6 +49,14 @@ export function Rotas() {
 
             <Route path="/editarCriatura" element={<Index/>}>
                 <Route index element={<EditarCriaturas/>}/>
+            </Route>
+
+            <Route path="/blocos" element={<Index/>}>
+                <Route index element={<Blocos/>}/>
+            </Route>
+
+            <Route path="/criarBloco" element={<Index/>}>
+                <Route index element={<CriarBlocos/>}/>
             </Route>
         </Routes>
     );
