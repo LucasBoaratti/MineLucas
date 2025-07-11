@@ -12,6 +12,10 @@ header {
     @apply flex items-center gap-12;
 }
 
+.home {
+    @apply cursor-pointer;
+}
+
 .perfil {
     @apply flex flex-col items-center;
 }
