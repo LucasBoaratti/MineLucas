@@ -2,6 +2,7 @@ import css from "./Blocos.module.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { DeletarBlocoModal } from "../../Components/Modais/Blocos/DeletarBlocoModal";
 
 export function Blocos() {
     const [blocos, setBlocos] = useState([]);
@@ -91,6 +92,10 @@ export function Blocos() {
                                         }}>
                                         Deletar
                                     </button>
+                                    <DeletarBlocoModal
+                                        openModal={deletarBlocoModal}
+                                        closeModal={() => setDeletarBlocoModal(false)}
+                                        atualizarCard={get_blocos}/>
                                 </div>
                             </section>
                         ))}

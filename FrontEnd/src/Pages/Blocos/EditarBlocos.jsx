@@ -1,13 +1,13 @@
-import css from "./CriarBlocos.module.css";
+import css from "./EditarBlocos.module.css";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CriarBlocosModal } from "../../Components/Modais/Blocos/CriarBlocosModal";
+import { EditarBlocosModal } from "../../Components/Modais/Blocos/EditarBlocosModal";
+import axios from "axios";
 
-const validacaoCriarBloco = z.object({
+const validacaoEditarBloco = z.object({
     nome: z.string()
         .min(1, "Digite um nome.")
         .max(255, "O nome do bloco não pode ser maior que 255 caracteres."),
@@ -38,23 +38,26 @@ const validacaoCriarBloco = z.object({
         .min(1, "Cole o link da foto."),
 });
 
-export function CriarBlocos() {
-    const [criarBlocoModal, setCriarBlocoModal] = useState(false);
+export function EditarBlocos() {
+    const [editarBlocoModal, setEditarBlocoModal] = useState(false);
 
     const navigate = useNavigate();
 
     const {
         register,
         handleSubmit,
+        setValue,
         formState: { errors },
     } = useForm({
-        resolver: zodResolver(validacaoCriarBloco)
+        resolver: zodResolver(validacaoEditarBloco)
     });
 
-    async function post_blocos(data) {
+    async function put_blocos(data) {
         const dadosBloco = {
             ...data,
         }
+
+        const idBloco = localStorage.getItem("idBloco");
 
         const token = localStorage.getItem("access_token");
 
@@ -63,26 +66,39 @@ export function CriarBlocos() {
         }
 
         try {
-            await axios.post("http://127.0.0.1:8000/MineLucas/blocos/", dadosBloco, {
+            await axios.put(`http://127.0.0.1:8000/MineLucas/blocos/${idBloco}/`, dadosBloco, {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                     "Content-Type": "application/json",
                 },
             });
 
-            setCriarBlocoModal(true);
+            setEditarBlocoModal(true);
         }
         catch(error) {
-            console.error("Erro ao criar bloco: ", error.response?.data || error.message);
+            console.error("Erro ao atualizar bloco: ", error.response?.data || error.message);
         }
     }
+
+    useEffect(() => {
+        setValue("nome", localStorage.getItem("nome") || "");
+        setValue("textura", localStorage.getItem("textura") || "");
+        setValue("durabilidade", localStorage.getItem("durabilidade") || "");
+        setValue("brilho", localStorage.getItem("brilho") || "false");
+        setValue("inflamavel", localStorage.getItem("inflamavel") || "false");
+        setValue("interagivel", localStorage.getItem("interagivel") || "false");
+        setValue("altura", localStorage.getItem("altura") || "");
+        setValue("geracao", localStorage.getItem("geracao") || "");
+        setValue("ferramenta_quebra", localStorage.getItem("ferramenta") || "");
+        setValue("foto", localStorage.getItem("foto") || "");
+    }, []);
 
     return (
         <main style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
             <section className={css.formularioBlocos}>
-                <h1>Crie seu bloco aqui!</h1>
-                <p className={css.aviso}>Pode ser um bloco fictício ou existente.</p>
-                <form onSubmit={handleSubmit(post_blocos)}>
+                <h1>Edite seu bloco aqui!</h1>
+                <p className={css.aviso}>Verifique as informações antes de enviar.</p>
+                <form onSubmit={handleSubmit(put_blocos)}>
                     <label 
                         htmlFor="nome"
                         style={{ fontSize:"20px" }}>
@@ -229,14 +245,14 @@ export function CriarBlocos() {
                     {errors.foto && <p style={{ marginBottom:"5px", color:"#59331B" }}>{errors.foto.message}</p>}
 
                     <div className={css.botoes}>
-                        <button type="submit">Criar</button>
+                        <button type="submit">Editar</button>
                         <button
                             type="button"
                             onClick={() => navigate("/blocos")}>
                             Voltar
                         </button>
-                        <CriarBlocosModal openModal={criarBlocoModal}/>
-                    </div>
+                        <EditarBlocosModal openModal={editarBlocoModal}/>
+                   </div>
                 </form>
             </section>
         </main>
