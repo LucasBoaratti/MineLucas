@@ -18,9 +18,19 @@ const validacaoEditarCriatura = z.object({
      vida: z.number(),
      drop_itens: z.string()
           .min(1, "Digite os drops de itens do mob."),
-     habilidade_especial: z.enum(["True", "False"]),
-     montado: z.enum(["True", "False"]),
-     dimensao_criatura: z.enum(["Overworld", "Nether", "The End"]),
+     habilidade_especial: z.enum([
+          "True", 
+          "False",
+     ]),
+     montado: z.enum([
+          "True",
+          "False",
+     ]),
+     dimensao_criatura: z.enum([
+          "Overworld", 
+          "Nether", 
+          "The End",
+     ]),
      foto: z.string()
           .min(1, "Cole o link da foto."),
 });
