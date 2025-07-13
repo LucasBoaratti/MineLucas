@@ -84,9 +84,9 @@ export function EditarBlocos() {
         setValue("nome", localStorage.getItem("nome") || "");
         setValue("textura", localStorage.getItem("textura") || "");
         setValue("durabilidade", localStorage.getItem("durabilidade") || "");
-        setValue("brilho", localStorage.getItem("brilho") || "false");
-        setValue("inflamavel", localStorage.getItem("inflamavel") || "false");
-        setValue("interagivel", localStorage.getItem("interagivel") || "false");
+        setValue("brilho", localStorage.getItem("brilho") || "");
+        setValue("inflamavel", localStorage.getItem("inflamavel") || "");
+        setValue("interagivel", localStorage.getItem("interagivel") || "");
         setValue("altura", localStorage.getItem("altura") || "");
         setValue("geracao", localStorage.getItem("geracao") || "");
         setValue("ferramenta_quebra", localStorage.getItem("ferramenta") || "");
