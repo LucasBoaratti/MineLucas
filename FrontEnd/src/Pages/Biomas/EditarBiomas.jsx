@@ -73,9 +73,9 @@ export function EditarBiomas() {
     useEffect(() => {
         setValue("nome", localStorage.getItem("nome") || "");
         setValue("vegetacao", localStorage.getItem("vegetacao") || "");
-        setValue("clima", localStorage.getItem("clima") || "ameno");
-        setValue("chuva", localStorage.getItem("chuva") || "false");
-        setValue("dimensao", localStorage.getItem("dimensao") || "overworld");
+        setValue("clima", localStorage.getItem("clima") || "");
+        setValue("chuva", localStorage.getItem("chuva") || "");
+        setValue("dimensao", localStorage.getItem("dimensao") || "");
         setValue("foto", localStorage.getItem("foto") || "");
     }, []);
 
