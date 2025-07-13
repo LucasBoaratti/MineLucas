@@ -2,9 +2,11 @@ import css from "./Estruturas.module.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { DeletarEstruturaModal } from "../../Components/Modais/Estruturas/DeletarEstruturaModal";
 
 export function Estruturas() {
     const [estruturas, setEstruturas] = useState([]);
+    const [deletarEstruturaModal, setDeletarEstruturaModal] = useState(false);
 
     const navigate = useNavigate();
 
@@ -66,11 +68,22 @@ export function Estruturas() {
                                             localStorage.setItem("tipo", estrutura.tipo);
                                             localStorage.setItem("tamanho", estrutura.tamanho);
                                             localStorage.setItem("foto", estrutura.foto);
-                                            navigate("/editarEstruturas");
+                                            navigate("/editarEstrutura");
                                         }}>
                                         Editar
                                     </button>
-                                    <button type="button">Deletar</button>
+                                    <button 
+                                        type="button"
+                                        onClick={() => {
+                                            localStorage.setItem("idEstrutura", estrutura.id);
+                                            setDeletarEstruturaModal(true);
+                                        }}>
+                                        Deletar
+                                    </button>
+                                    <DeletarEstruturaModal 
+                                        openModal={deletarEstruturaModal}
+                                        closeModal={() => setDeletarEstruturaModal(false)}
+                                        atualizarCard={get_estruturas}/>
                                 </div>
                             </section>
                         ))}
