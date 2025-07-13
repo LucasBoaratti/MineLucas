@@ -14,6 +14,7 @@ import { CriarBlocos } from "../Pages/Blocos/CriarBlocos";
 import { EditarBlocos } from "../Pages/Blocos/EditarBlocos";
 import { Estruturas } from "../Pages/Estruturas/Estruturas";
 import { CriarEstruturas } from "../Pages/Estruturas/CriarEstruturas";
+import { EditarEstruturas } from "../Pages/Estruturas/EditarEstruturas";
 
 export function Rotas() {
     return (
@@ -72,6 +73,10 @@ export function Rotas() {
 
             <Route path="/criarEstrutura" element={<Index/>}>
                 <Route index element={<CriarEstruturas/>}/>
+            </Route>
+
+            <Route path="/editarEstrutura" element={<Index/>}>
+                <Route index element={<EditarEstruturas/>}/>
             </Route>
         </Routes>
     );
