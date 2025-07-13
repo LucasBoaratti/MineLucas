@@ -79,9 +79,9 @@ export function EditarCriaturas() {
           setValue("tamanho", localStorage.getItem("tamanho") || "");
           setValue("vida", localStorage.getItem("vida") || "");
           setValue("drop_itens", localStorage.getItem("drops") || "");
-          setValue("habilidade_especial", localStorage.getItem("habilidadeEspecial") || "false");
-          setValue("montavel", localStorage.getItem("montavel") || "false");
-          setValue("dimensao", localStorage.getItem("dimensao") || "overworld");
+          setValue("habilidade_especial", localStorage.getItem("habilidadeEspecial") || "");
+          setValue("montavel", localStorage.getItem("montavel") || "");
+          setValue("dimensao", localStorage.getItem("dimensao") || "");
           setValue("foto", localStorage.getItem("foto") || "");
      }, []);
 
