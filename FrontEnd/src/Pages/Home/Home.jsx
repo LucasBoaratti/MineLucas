@@ -41,7 +41,11 @@ export function Home() {
                         </button>
                     </div>
                     <div className={css.botao}>
-                        <button type="button">Jogadores</button>
+                        <button 
+                            type="button"
+                            onClick={() => navigate("/jogadores")}>
+                            Jogadores
+                        </button>
                     </div>
                 </section>
             </section>

@@ -10,7 +10,7 @@ main {
 }
 
 .imagem {
-    @apply flex justify-center items-center py-[70px];
+    @apply flex justify-center items-center pt-[30px] pb-[60px];
 }
 
 .cruds {
