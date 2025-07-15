@@ -16,6 +16,10 @@ header {
     @apply cursor-pointer;
 }
 
+.login {
+    @apply cursor-pointer;
+}
+
 .perfil {
     @apply flex flex-col items-center;
 }
