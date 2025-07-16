@@ -5,9 +5,3 @@ class IsAdmin(BasePermission):
         if request.user.is_authenticated and request.user.funcao == "Admin":
             return True
         return False
-    
-class IsJogador(BasePermission):
-    def has_permission(self, request, view):
-        if request.user.is_authenticated and request.user.funcao == "Jogador":
-            return True
-        return False
