@@ -16,6 +16,10 @@ header {
     @apply cursor-pointer;
 }
 
+.seeds {
+    @apply cursor-pointer;
+}
+
 .login {
     @apply cursor-pointer;
 }

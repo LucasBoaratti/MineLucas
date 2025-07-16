@@ -13,11 +13,16 @@ export function Cabecalho() {
             <section className={css.cabecalho}> 
                 <img src={Logo} alt="Logo da MineLucas com fundo verde, uma carinha de Creeper preta e o nome do site, MineLucas em letras brancas." />
                 <div className={css.links}>
-                    <p onClick={() => navigate("/home")} 
+                    <p 
+                        onClick={() => navigate("/home")} 
                         className={css.home}>
                         Home
                     </p>
-                    <p>Seeds</p>
+                    <p
+                        onClick={() => navigate("/seeds")}
+                        className={css.seeds}>
+                        Seeds
+                    </p>
                     <p>Mapas</p>  
                     <p>Tutoriais</p>
                     <p>Mods</p>  
