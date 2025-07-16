@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+main {
+    background-image: url("../../assets/Images/BackGround.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.geradorSeed {
+    @apply text-center;
+}
+
+.seeds {
+    @apply bg-[#79C05A] text-black p-6 rounded-[25px];
+}
+
+.seeds h1 {
+    @apply text-[25px] text-center mb-[10px]
+}
+
+.seed {
+    @apply bg-white mt-[20px] p-3 rounded-[20px] text-center;
+}
+
+.seed button {
+    @apply rounded-[15px] bg-[#FF0000] w-[150px] h-[35px] pb-[3px] pl-[5px] mt-[30px] text-center text-white cursor-pointer hover:bg-[#A64AC9] hover:text-white;
+}
+
+.botao {
+    @apply flex justify-center items-center;
+}
+
+.botao button {
+    @apply rounded-[15px] bg-[#8D6243] w-[90px] h-[35px] pb-[3px] pl-[5px] mt-[30px] text-center text-white cursor-pointer hover:bg-[#3C3C3C] hover:text-white;
+}
