@@ -18,6 +18,7 @@ import { EditarEstruturas } from "../Pages/Estruturas/EditarEstruturas";
 import { Jogadores } from "../Pages/Jogadores/Jogadores";
 import { CriarJogadores } from "../Pages/Jogadores/CriarJogadores";
 import { EditarJogadores } from "../Pages/Jogadores/EditarJogadores";
+import { Seeds } from "../Pages/Seeds/Seeds";
 
 export function Rotas() {
     return (
@@ -92,6 +93,10 @@ export function Rotas() {
 
             <Route path="/editarJogador" element={<Index/>}>
                 <Route index element={<EditarJogadores/>}/>
+            </Route>
+
+            <Route path="/seeds" element={<Index/>}>
+                <Route index element={<Seeds/>}/>
             </Route>
         </Routes>
     );
