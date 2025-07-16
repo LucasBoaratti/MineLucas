@@ -1,6 +1,6 @@
 from .models import Usuario, Biomas, Criaturas, Blocos, Estruturas, Jogadores
 from .serializers import UsuarioSerializer, BiomaSerializer, CriaturaSerializer, BlocoSerializer, EstruturaSerializer, JogadorSerializer, UsuarioCadastrado, LoginUsuario
-from .permissions import IsAdmin, IsJogador
+from .permissions import IsAdmin
 from rest_framework import status
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
 from rest_framework.views import APIView
@@ -111,7 +111,7 @@ class CadastroUsuario(ListCreateAPIView):
     serializer_class = UsuarioCadastrado
 
 class GeradorSeeds(APIView):
-    permission_classes = [IsJogador]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
         seed = random.randint(-9223372036854775808, 9223372036854775807)
