@@ -15,7 +15,8 @@ export function CriarJogadoresModal({ openModal, closeModal }) {
                 <div className={css.botao}>
                     <button 
                         type="button"
-                        onClick={() => navigate("/jogadores")}>
+                        onClick={() => navigate("/jogadores")}
+                        className={css.botaoAvancar}>
                         Avançar
                     </button>
                 </div>

@@ -15,7 +15,8 @@ export function EditarEstruturasModal({ openModal, closeModal }) {
                     <div className={css.botao}>
                         <button 
                             type="button"
-                            onClick={() => navigate("/estruturas")}>
+                            onClick={() => navigate("/estruturas")}
+                            className={css.botaoAvancar}>
                             Avançar
                         </button>
                     </div>

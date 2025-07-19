@@ -15,7 +15,8 @@ export function EditarBlocosModal({ openModal, closeModal }) {
                 <div className={css.botao}>
                     <button 
                         type="button"
-                        onClick={() => navigate("/blocos")}>
+                        onClick={() => navigate("/blocos")}
+                        className={css.botaoAvancar}>
                         Avançar
                     </button>
                 </div>

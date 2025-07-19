@@ -15,7 +15,7 @@ export function CriarCriaturasModal({ openModal, closeModal }) {
                     <div className={css.botao}>
                          <button 
                               type="button"
-                              onClick={() => navigate("/biomas")}>
+                              onClick={() => navigate("/criaturas")}>
                               Avançar
                          </button>
                     </div>

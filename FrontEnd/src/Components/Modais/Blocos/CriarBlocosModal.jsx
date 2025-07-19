@@ -4,7 +4,7 @@ import css from "./CriarBlocosModal.module.css";
 export function CriarBlocosModal({ openModal, closeModal }) {
     if(!openModal) {
         return null;
-    }
+    } 
 
     const navigate = useNavigate();
 
@@ -14,6 +14,7 @@ export function CriarBlocosModal({ openModal, closeModal }) {
                 <h1>Bloco criado com sucesso!</h1>
                 <div className={css.botao}>
                     <button 
+                        className={css.botaoAvancar}
                         type="button"
                         onClick={() => navigate("/blocos")}>
                         Avançar
