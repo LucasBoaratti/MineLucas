@@ -13,6 +13,10 @@ main {
     align-items: center;
 }
 
+.aviso {
+    @apply text-center;
+}
+
 .formularioBiomas {
     @apply bg-[#79C05A] p-6 rounded-[25px] w-[600px];
 }

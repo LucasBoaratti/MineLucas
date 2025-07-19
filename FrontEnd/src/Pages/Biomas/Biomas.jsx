@@ -3,10 +3,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DeletarBiomaModal } from "../../Components/Modais/Biomas/DeletarBiomaModal";
+import { PermissaoModal } from "../../Components/Modais/Permissoes/PermissaoModal";
 
 export function Biomas() {
      const [biomas, setBiomas] = useState([]);
      const [deletarBioma, setDeletarBioma] = useState(false);
+     const [permissaoModal, setPermissaoModal] = useState(false);
 
      const navigate = useNavigate();
 
@@ -36,16 +38,66 @@ export function Biomas() {
           get_biomas();
      }, []);
 
+     function exportar_biomas_json() {
+          const token = localStorage.getItem("access_token");
+
+          axios.get("http://127.0.0.1:8000/MineLucas/exportarBiomas/", {
+               headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json",
+               },
+          })
+          .then((response) => {
+               const dados = typeof response.data === "string" 
+                    ? JSON.parse(response.data)
+                    : response.data;
+
+               const blob = new Blob([JSON.stringify(dados, null, 2)], {
+                    type: "application/json",
+               });
+
+               const url = URL.createObjectURL(blob);
+
+               const links = document.createElement("a");
+
+               links.href = url;
+
+               links.download = "Biomas_data.json";
+
+               links.click();
+
+               URL.revokeObjectURL(url);   
+          })
+          .catch((error) => {
+               console.error("Erro ao exportar os biomas: ", error.response?.data || error.message);
+
+               if(error.response && (error.response.status === 403 || error.response.status === 401)) {
+                    setPermissaoModal(true);
+
+                    return;
+               }
+          });
+     }
+
      return (
-          <main className={css.cardsContainer} style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
+          <main style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
                <section className={css.cards}>
                     <h1>Veja todos os biomas cadastrados no site</h1>
-                    <div className={css.criarBioma}>
+                    <div className={css.botoesBiomas}>
                          <button 
                               type="button" 
                               onClick={() => navigate("/criarBioma")}>
                               Criar bioma
                          </button>
+                         <button
+                              type="button"
+                              onClick={exportar_biomas_json}
+                              style={{ width:"220px" }}> 
+                              Exportar biomas
+                         </button>
+                         <PermissaoModal 
+                              openModal={permissaoModal}
+                              closeModal={() => setPermissaoModal(false)}/>
                     </div>
                     <section className={css.biomas}>
                          <section className={css.fileiraCards}>

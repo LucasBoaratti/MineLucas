@@ -13,11 +13,11 @@ main {
     @apply text-center text-[30px] text-white py-[50px];
 }
 
-.criarBioma {
-    @apply text-center pb-[50px];
+.botoesBiomas {
+    @apply pb-[50px] flex justify-center gap-[30px];
 }
 
-.criarBioma button {
+.botoesBiomas button {
     @apply rounded-[15px] bg-[#FF0000] w-[150px] h-[35px] pb-[3px] pl-[5px] text-center text-[18px] text-black border-2 border-[#000200] cursor-pointer hover:bg-[#5B832C] hover:text-white;
 }
 

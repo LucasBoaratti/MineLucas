@@ -71,7 +71,7 @@ export function CriarBiomas() {
           <main className={css.biomaContainer} style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
                <section className={css.formularioBiomas}>
                     <h1>Crie seu bioma aqui!</h1>
-                    <p>Pode ser um bioma existente ou fictício.</p>
+                    <p className={css.aviso}>Pode ser um bioma existente ou fictício.</p>
                     <form onSubmit={handleSubmit(post_biomas)}>
                          <label 
                               htmlFor="name"
@@ -166,7 +166,7 @@ export function CriarBiomas() {
                          {errors.foto && <p style={{ marginBottom:"5px", color:"#59331B" }}>{errors.foto.message}</p>}  
 
                          <div className={css.botoes}>
-                              <button type="submit">Criar bioma</button>
+                              <button type="submit">Criar</button>
                               <button
                                    type="button"
                                    onClick={() => navigate("/biomas")}>
