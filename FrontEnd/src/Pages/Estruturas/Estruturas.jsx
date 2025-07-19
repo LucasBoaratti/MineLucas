@@ -3,10 +3,12 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { DeletarEstruturaModal } from "../../Components/Modais/Estruturas/DeletarEstruturaModal";
+import { PermissaoModal } from "../../Components/Modais/Permissoes/PermissaoModal";
 
 export function Estruturas() {
     const [estruturas, setEstruturas] = useState([]);
     const [deletarEstruturaModal, setDeletarEstruturaModal] = useState(false);
+    const [permissaoModal, setPermissaoModal] = useState(false);
 
     const navigate = useNavigate();
 
@@ -36,16 +38,66 @@ export function Estruturas() {
         get_estruturas();
     }, []);
 
+    function exportar_estruturas_json() {
+        const token = localStorage.getItem("access_token");
+
+        axios.get("http://127.0.0.1:8000/MineLucas/exportarEstruturas/", {
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+        })
+        .then((response) => {
+            const dados = typeof response.data === "string" 
+                ? JSON.parse(response.data)
+                : response.data;
+
+            const blob = new Blob([JSON.stringify(dados, null, 2)], {
+                type: "application/json",
+            });
+
+            const url = URL.createObjectURL(blob);
+
+            const links = document.createElement("a");
+
+            links.href = url;
+
+            links.download = "Estruturas_data.json";
+
+            links.click();
+
+            URL.revokeObjectURL(url);   
+        })
+        .catch((error) => {
+            console.error("Erro ao exportar as estruturas: ", error.response?.data || error.message);
+
+            if(error.response && (error.response.status === 403 || error.response.status === 401)) {
+                setPermissaoModal(true);
+
+                return;
+            }
+        });
+    }
+
     return (
         <main style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
             <section className={css.cards}>
                 <h1>Veja todas as estruturas cadastradas no site.</h1>
-                <div className={css.criarEstrutura}>
+                <div className={css.botoesEstruturas}>
                     <button 
-                        type="button"
+                        type="button" 
                         onClick={() => navigate("/criarEstrutura")}>
                         Criar estrutura
                     </button>
+                    <button
+                        type="button"
+                        onClick={exportar_estruturas_json}
+                        style={{ width:"270px" }}> 
+                        Exportar estruturas
+                    </button>
+                    <PermissaoModal 
+                        openModal={permissaoModal}
+                        closeModal={() => setPermissaoModal(false)}/>
                 </div>
                 <section className={css.estruturas}>
                     <section className={css.fileiraCards}>

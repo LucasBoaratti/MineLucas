@@ -13,11 +13,11 @@ main {
     @apply text-[25px] text-white text-center py-[50px];
 }
 
-.criarEstrutura {
-    @apply text-center pb-[50px];
+.botoesEstruturas {
+    @apply flex justify-center gap-[30px] pb-[50px];
 }
 
-.criarEstrutura button {
+.botoesEstruturas button {
     @apply rounded-[15px] bg-[#FF0000] w-[220px] h-[35px] pl-[5px] text-center text-[18px] text-black border-2 border-[#000200] cursor-pointer hover:bg-[#5B832C] hover:text-white;
 }
 
