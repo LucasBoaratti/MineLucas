@@ -3,10 +3,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { DeletarCriaturaModal } from "../../Components/Modais/Criaturas/DeletarCriaturaModal";
+import { PermissaoModal } from "../../Components/Modais/Permissoes/PermissaoModal";
 
 export function Criaturas() {
      const [criaturas, setCriaturas] = useState([]);
      const [deletarCriaturaModal, setDeletarCriaturaModal] = useState(false);
+     const [permissaoModal, setPermissaoModal] = useState(false);
 
      const navigate = useNavigate();
 
@@ -36,16 +38,66 @@ export function Criaturas() {
           get_criaturas();
      }, []);
 
+     function exportar_criaturas_json() {
+          const token = localStorage.getItem("access_token");
+
+          axios.get("http://127.0.0.1:8000/MineLucas/exportarCriaturas/", {
+               headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json",
+               },
+          })
+          .then((response) => {
+               const dados = typeof response.data === "string" 
+                    ? JSON.parse(response.data)
+                    : response.data;
+
+               const blob = new Blob([JSON.stringify(dados, null, 2)], {
+                    type: "application/json",
+               });
+
+               const url = URL.createObjectURL(blob);
+
+               const links = document.createElement("a");
+
+               links.href = url;
+
+               links.download = "Criaturas_data.json";
+
+               links.click();
+
+               URL.revokeObjectURL(url);   
+          })
+          .catch((error) => {
+               console.error("Erro ao exportar as criaturas: ", error.response?.data || error.message);
+
+               if(error.response && (error.response.status === 403 || error.response.status === 401)) {
+                    setPermissaoModal(true);
+
+                    return;
+               }
+          });
+     }
+
      return (
           <main className={css.cardsContainer} style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
                <section className={css.cards}>
                     <h1>Veja todas as criaturas cadastradas no site.</h1>
-                    <div className={css.criarCriatura}>
+                    <div className={css.botoesCriaturas}>
                          <button 
-                              type="button"
+                              type="button" 
                               onClick={() => navigate("/criarCriatura")}>
                               Criar criatura
                          </button>
+                         <button
+                              type="button"
+                              onClick={exportar_criaturas_json}
+                              style={{ width:"250px" }}> 
+                              Exportar criaturas
+                         </button>
+                         <PermissaoModal 
+                              openModal={permissaoModal}
+                              closeModal={() => setPermissaoModal(false)}/>
                     </div>
                     <section className={css.criaturas}>
                          <section className={css.fileiraCards}>
