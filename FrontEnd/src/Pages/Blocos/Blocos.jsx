@@ -3,10 +3,12 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { DeletarBlocoModal } from "../../Components/Modais/Blocos/DeletarBlocoModal";
+import { PermissaoModal } from "../../Components/Modais/Permissoes/PermissaoModal";
 
 export function Blocos() {
     const [blocos, setBlocos] = useState([]);
     const [deletarBlocoModal, setDeletarBlocoModal] = useState(false);
+    const [permissaoModal, setPermissaoModal] = useState(false);
 
     const navigate = useNavigate();
 
@@ -36,17 +38,67 @@ export function Blocos() {
         get_blocos();
     }, []);
 
+    function exportar_blocos_json() {
+        const token = localStorage.getItem("access_token");
+
+        axios.get("http://127.0.0.1:8000/MineLucas/exportarBlocos/", {
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+        })
+        .then((response) => {
+            const dados = typeof response.data === "string" 
+                ? JSON.parse(response.data)
+                : response.data;
+
+            const blob = new Blob([JSON.stringify(dados, null, 2)], {
+                type: "application/json",
+            });
+
+            const url = URL.createObjectURL(blob);
+
+            const links = document.createElement("a");
+
+            links.href = url;
+
+            links.download = "Blocos_data.json";
+
+            links.click();
+
+            URL.revokeObjectURL(url);   
+        })
+        .catch((error) => {
+            console.error("Erro ao exportar os blocos: ", error.response?.data || error.message);
+
+            if(error.response && (error.response.status === 403 || error.response.status === 401)) {
+                setPermissaoModal(true);
+
+                return;
+            }
+        });
+    }
+
     return (
         <main style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
             <section className={css.cards}>
                 <h1>Veja todos os blocos cadastrados no site.</h1>
-                <div className={css.criarBloco}>
-                    <button 
-                        type="button"
-                        onClick={() => navigate("/criarBloco")}>
-                        Criar bloco
-                    </button>
-                </div>
+                <div className={css.botoesBlocos}>
+                         <button 
+                              type="button" 
+                              onClick={() => navigate("/criarBloco")}>
+                              Criar bloco
+                         </button>
+                         <button
+                              type="button"
+                              onClick={exportar_blocos_json}
+                              style={{ width:"250px" }}> 
+                              Exportar blocos
+                         </button>
+                         <PermissaoModal 
+                              openModal={permissaoModal}
+                              closeModal={() => setPermissaoModal(false)}/>
+                    </div>
                 <section className={css.blocos}>
                     <section className={css.fileiraCards}>
                         {blocos.map((bloco, id) => (

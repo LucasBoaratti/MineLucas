@@ -31,9 +31,12 @@ const validacaoCriarBloco = z.object({
     geracao: z.string()
         .min(1, "Digite a geração.")
         .max(255, "A localização da geração não pode ser maior que 255 caracteres."),
-    ferramenta_quebra: z.string()
-        .min(1, "Digite uma ferramenta.")
-        .max(255, "A ferramenta não pode ser maior que 255 caracteres."),
+    ferramenta_quebra: z.enum([
+        "Machado",
+        "Picareta",
+        "Pá",
+        "Enxada",
+    ]),
     foto: z.string()
         .min(1, "Cole o link da foto."),
 });
@@ -205,12 +208,12 @@ export function CriarBlocos() {
                         style={{ fontSize:"20px" }}>
                         Ferramenta:
                     </label> <br />
-                    <input 
-                        type="text" 
-                        name="ferramenta" 
-                        id="ferramenta"
-                        placeholder="Ferramenta ideal para quebrar o bloco"
-                        {...register("ferramenta_quebra")} />
+                    <select name="ferramenta" id="ferramenta" style={{ fontSize:"18px" }} {...register("ferramenta_quebra")}>
+                        <option value="Machado">Machado</option>
+                        <option value="Picareta">Picareta</option>
+                        <option value="Pá">Pá</option>
+                        <option value="Enxada">Enxada</option>
+                    </select>
                     <br />
                     {errors.ferramenta_quebra && <p style={{ marginBottom:"5px", color:"#59331B" }}>{errors.ferramenta_quebra.message}</p>}
 

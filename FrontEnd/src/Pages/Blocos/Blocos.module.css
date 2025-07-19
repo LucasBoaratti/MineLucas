@@ -13,16 +13,16 @@ main {
     @apply text-[25px] text-white text-center py-[50px];
 }
 
-.criarBloco {
-    @apply text-center pb-[50px];
+.botoesBlocos {
+    @apply flex justify-center gap-[30px] pb-[50px];
 }
 
-.criarBloco button {
+.botoesBlocos button {
     @apply rounded-[15px] bg-[#FF0000] w-[190px] h-[35px] pl-[5px] text-center text-[18px] text-black border-2 border-[#000200] cursor-pointer hover:bg-[#5B832C] hover:text-white;
 }
 
 .fileiraCards {
-     @apply flex flex-wrap justify-evenly gap-8;
+    @apply flex flex-wrap justify-evenly gap-8;
 }
 
 .cardBloco {
