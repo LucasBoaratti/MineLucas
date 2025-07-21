@@ -55,7 +55,7 @@ export function Login() {
     }
 
     return (
-        <main className={css.loginContainer} style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
+        <main style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
             <section className={css.login}>
                 <h1>Bem vindo(a) à MineLucas!</h1>
                 <p className={css.realizarLogin}>Realize seu login abaixo.</p>
