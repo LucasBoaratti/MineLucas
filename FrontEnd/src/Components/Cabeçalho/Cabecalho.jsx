@@ -23,9 +23,11 @@ export function Cabecalho() {
                         className={css.seeds}>
                         Seeds
                     </p>
-                    <p>Mapas</p>  
-                    <p>Tutoriais</p>
-                    <p>Mods</p>  
+                    <p
+                        onClick={() => navigate("/mapas")}
+                        className={css.mapas}>
+                        Mapas
+                    </p>  
                     <p 
                         onClick={() => navigate("/")} 
                         className={css.login}>

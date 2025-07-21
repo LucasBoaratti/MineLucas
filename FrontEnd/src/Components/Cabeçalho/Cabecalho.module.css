@@ -20,6 +20,10 @@ header {
     @apply cursor-pointer;
 }
 
+.mapas {
+    @apply cursor-pointer;
+}
+
 .login {
     @apply cursor-pointer;
 }
