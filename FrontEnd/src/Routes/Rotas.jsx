@@ -19,6 +19,7 @@ import { Jogadores } from "../Pages/Jogadores/Jogadores";
 import { CriarJogadores } from "../Pages/Jogadores/CriarJogadores";
 import { EditarJogadores } from "../Pages/Jogadores/EditarJogadores";
 import { Seeds } from "../Pages/Seeds/Seeds";
+import { Mapas } from "../Pages/Mapas/Mapas";
 
 export function Rotas() {
     return (
@@ -97,6 +98,10 @@ export function Rotas() {
 
             <Route path="/seeds" element={<Index/>}>
                 <Route index element={<Seeds/>}/>
+            </Route>
+
+            <Route path="/mapas" element={<Index/>}>
+                <Route index element={<Mapas/>}/>
             </Route>
         </Routes>
     );
