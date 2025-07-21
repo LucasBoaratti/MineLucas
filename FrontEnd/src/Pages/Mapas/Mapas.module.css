@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+main {
+    background-image: url("../../assets/Images/BackGround.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.mapas {
+    @apply my-[60px];
+}
+
+
+.titulo {
+    @apply text-white text-[30px] mb-[50px];
+}
+
+.mapaRepetente {
+    @apply bg-[#FED83D] p-5 mt-[50px] rounded-[25px] flex items-center w-[1200px];
+}
+
+.imagens {
+    @apply flex flex-col;
+}
+
+.imagens img {
+    @apply w-[500px] h-[300px] rounded-[15px];
+}
+
+.informacoes {
+    @apply flex flex-col items-center ml-[90px] w-[500px];
+}
+
+.informacoes h2 {
+    @apply text-center text-[20px] pb-[30px];
+}
+
+.mapaBugado {
+    @apply bg-[#FED83D] p-5 mt-[50px] rounded-[25px] flex items-center w-[1200px];
+}
+
+.vilaBugada {
+    @apply bg-[#FED83D] p-5 mt-[50px] rounded-[25px] flex items-center w-[1200px];
+}
+
+.portalBugado {
+    @apply bg-[#FED83D] p-5 mt-[50px] rounded-[25px] flex items-center w-[1200px];
+}
+
+.igluBugado {
+    @apply bg-[#FED83D] p-5 mt-[50px] rounded-[25px] flex items-center w-[1200px];
+}
