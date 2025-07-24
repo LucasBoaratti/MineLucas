@@ -11,7 +11,7 @@ export function EditarBlocosModal({ openModal, closeModal }) {
     return (
         <main className={css.modalContainer} style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
             <section className={css.modalEditarBloco}>
-                <h1>Bioma editado com sucesso!</h1>
+                <h1>Bloco editado com sucesso!</h1>
                 <div className={css.botao}>
                     <button 
                         type="button"

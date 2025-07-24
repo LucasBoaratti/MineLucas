@@ -9,7 +9,7 @@ export function CadastroModalSucesso({ openModal }) {
     const navigate = useNavigate();
 
     return (
-        <main className={css.modalContainer}>
+        <main className={css.modalContainer} style={{ backgroundColor:'rgba(0, 0, 0, 0.5)', backgroundBlendMode:'darken' }}>
             <section className={css.modalCadastro}>
                 <h1>Cadastro realizado com sucesso! Realize o login.</h1>
                     <div className={css.botao}>
