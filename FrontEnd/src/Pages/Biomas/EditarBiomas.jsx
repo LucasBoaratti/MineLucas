@@ -133,7 +133,7 @@ export function EditarBiomas() {
                     <label 
                         htmlFor="chuva"
                         style={{ fontSize:"20px" }}>
-                        Chuva:
+                        Chuva/neve:
                     </label> <br />
                     <select 
                         name="chuva" 
