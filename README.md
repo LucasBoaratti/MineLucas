@@ -32,59 +32,65 @@ cd .\MineLucas
 code .
 ```
 
-4. Após entrar no VSCode, abra o terminal pelo atalho CTRL + J ou CTRL + ', e vá até a pasta BackEnd:
+5. Após entrar no VSCode, abra o terminal pelo atalho CTRL + J ou CTRL + ', e vá até a pasta BackEnd:
 
 ```bash
 cd .\BackEnd
 ```
 
-5. E depois crie o ambiente virtual do python:
+6. Verifique se o python está instalado em sua máquina e no VSCode;
+
+7. Se não tiver instalado na máquina, faça o download do python [aqui](https://www.python.org/);
+
+8. Instale o python no VSCode também (se já tiver instalado, ignore esse passo);
+
+9. E depois crie o ambiente virtual do python:
 
 ```bash
 python -m venv .venv
 ```
 
-6. Após a instalação, ative a pasta .venv:
+10. Após a instalação, ative a pasta .venv:
 
 ```bash
 .\.venv\Scripts\activate
 ```
 
-7. Agora, instale as bibliotecas com o requirements.txt:
+11. Agora, instale as bibliotecas com o requirements.txt:
 
 ```bash 
 pip install -r .\requirements.txt
 ```
 
-8. E depois, rode o servidor:
+12. E depois, rode o servidor:
 
 ```bash
 python .\manage.py runserver
 ```
 
-9. Agora, abra outro terminal clicando em "+" e vá para a pasta FrontEnd:
+13. Agora, abra outro terminal clicando em "+" e vá para a pasta FrontEnd:
 
 ```bash
 cd .\FrontEnd
 ```
 
-10. Agora, crie a pasta node_modules:
+14. Agora, crie a pasta node_modules:
 
 ```bash
 npm install
 ```
 
-11: Depois de instalar a pasta, rode o servidor:
+15: Depois de instalar a pasta, rode o servidor:
 
 ```bash
 npm run dev
 ```
 
-E pronto! Agora você pode usar o site da MineLucas e aproveitar as funcionalidades :D
+#### E pronto! Agora você pode usar o site da MineLucas e aproveitar as funcionalidades :D
 
 # 🟩 Linguagens utilizadas 🟩
 
-# FrontEnd
+## FrontEnd
 
 <div style="display: flex;">
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" title="React" width="70px" height="70px"/>
@@ -93,14 +99,14 @@ E pronto! Agora você pode usar o site da MineLucas e aproveitar as funcionalida
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" title="Tailwind" width="70px" height="70px"/>
 </div>
 
-### BackEnd
+## BackEnd
 
 <div style="display: flex;">
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" title="Python" width="70px" height="70px"/>
     <img src="https://icon.icepanel.io/Technology/png-shadow-512/Django.png" alt="Django" title="Django" width="70px" height="70px">
 </div>
 
-### Ferramentas/tecnologias
+## Ferramentas/tecnologias
 
 <div style="display: flex;">
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg" alt="Canva" title="Canva" width="70px" height="70px"/>    
